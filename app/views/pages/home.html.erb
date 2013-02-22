@@ -3,9 +3,9 @@
 <% @tasks.each do |task| %>
   <p><%= task.name %> (<%= parse_total_time(task.total_time) %>)
 		<% if task.running != true %>
-	    <%= button_to "Start", tasks_start_path(:id => task.id) %>
+	    <%= button_to "Start", tasks_start_path(:id => task.id), :class => "start" %>
 		<% else %>
-		  <%= button_to "Stop", tasks_stop_path(:id => task.id) %>
+		  <%= button_to "Stop", tasks_stop_path(:id => task.id), :class => "stop" %>
 		<% end %>
 	</p>
 	<hr>
