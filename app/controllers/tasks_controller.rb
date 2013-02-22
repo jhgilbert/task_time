@@ -44,6 +44,11 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.start_time = DateTime.now
     task.running = true
+    task.save!
+    
+    respond_to do |format|
+     format.html { redirect_to root_path, notice: "'#{task.name}' started." }
+    end
   end
   
   def stop
@@ -51,6 +56,11 @@ class TasksController < ApplicationController
     task.running = false
     task.stop_time = DateTime.now
     time_elapsed = task.stop_time - task.start_time
-    task.total_time = task.total_time + time_elapsed  
+    task.total_time = task.total_time + time_elapsed
+    task.save!
+    
+    respond_to do |format|
+     format.html { redirect_to root_path, notice: "'#{task.name}' stopped." }
+    end  
   end
 end
