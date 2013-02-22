@@ -1,5 +1,7 @@
 TaskTime::Application.routes.draw do
   get "pages/home"
+  post "pages/start"
+  post "pages/stop"
 
   root :to => "pages#home"
   
