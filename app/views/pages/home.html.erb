@@ -1,7 +1,7 @@
 <h1>Task Timer</h1>
 <hr>
 <% @tasks.each do |task| %>
-  <p><%= task.name %> (<%= task.total_time %>)
+  <p><%= task.name %> (<%= parse_total_time(task.total_time) %>)
 		<% if task.running != true %>
 	    <%= button_to "Start", tasks_start_path(:id => task.id) %>
 		<% else %>
