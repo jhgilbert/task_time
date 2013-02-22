@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_time: 2013-02-21 18:38:57
+  stop_time: 2013-02-21 18:38:57
+  running: false
+  total_time: 1
+
+two:
+  start_time: 2013-02-21 18:38:57
+  stop_time: 2013-02-21 18:38:57
+  running: false
+  total_time: 1
