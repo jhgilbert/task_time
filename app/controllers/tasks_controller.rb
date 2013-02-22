@@ -42,12 +42,19 @@ class TasksController < ApplicationController
   
   def start
     task = Task.find(params[:id])
-    task.start_time = DateTime.now
-    task.running = true
-    task.save!
+    running_task = Task.where(:running => true)
+    message = ""
+    if running_task == []
+      task.start_time = DateTime.now
+      task.running = true
+      task.save!
+      message = "'#{task.name}' started."
+    else
+      message = "'#{running_task[0].name}' is already running!"
+    end
     
     respond_to do |format|
-     format.html { redirect_to root_path, notice: "'#{task.name}' started." }
+     format.html { redirect_to root_path, notice: "#{message}" }
     end
   end
   
