@@ -1,4 +1,10 @@
 <h1>Task Timer</h1>
 <% @tasks.each do |task| %>
-  <p><%= task.name %>, <%= task.total_time %></p>
+  <p>
+		<% if task.running %>
+	    <%= link_to "Start", tasks_start_path %>
+		<% else %>
+		  <%= link_to "Stop", tasks_stop_path %>
+		<% end %>
+			 <%= task.name %>, <%= task.total_time %></p>
 <% end %>
